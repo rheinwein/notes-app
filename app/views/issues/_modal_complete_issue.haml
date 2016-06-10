@@ -1,0 +1,21 @@
+.modal.fade#js-modal-complete-issue{:role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-md
+
+    = form_for Issue.new, url: issue_complete_url(Issue.first), method: :patch do |f|
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+
+          %span.h4.modal-title Add a comment?
+
+        .modal-body
+          = text_area_tag :complete_comment, '', placeholder: 'Add your comment here', class: 'form-control'#, style: 'width: 100%'
+
+        .modal-footer
+          -# dynamically redirect back to where the user marked this issue as done
+          = f.hidden_field :return_to, value: request.fullpath
+          = f.hidden_field :completed_at, value: Time.now
+
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button", tabindex: -1} Cancel
+          %button.btn.btn-success{:type => "submit"} Mark as Complete

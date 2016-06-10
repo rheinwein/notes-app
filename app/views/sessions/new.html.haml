@@ -1,0 +1,8 @@
+.row
+  .col-md-6
+
+    = form_tag sessions_path, class: "form-inline" do
+      .form-group
+        = text_field_tag :chip_id, '', autofocus: true, class: "form-control", placeholder: 'Password'
+
+      = submit_tag 'Log in', class: 'btn btn-default'

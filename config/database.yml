@@ -1,0 +1,19 @@
+# PostgreSQL. Versions 8.2 and up are supported.
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: notes_app_development
+  username: <%= ENV['POSTGRES_USERNAME'] || 'postgres' %>
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || 'localhost' %>
+  port: 5432
+
+test: &test
+  <<: *default
+  username: <%= ENV['POSTGRES_USERNAME'] || 'postgres' %>
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || 'localhost' %>
+  port: 5432

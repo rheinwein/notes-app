@@ -1,0 +1,40 @@
+!!!5
+%html
+  %head
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    %title #{window_title} « Codeship
+
+  %body
+    .container
+      .row
+        .col-md-12
+          %nav.navbar.navbar-default
+            .container-fluid
+              .navbar-header
+                .navbar-brand
+                  = link_to 'Ship Log | Notes and Tasks', root_url
+              .navbar-collapse
+                - if current_user
+                  %p.navbar-text.navbar-right
+                    %strong= current_user.name
+                    - if current_user.admin?
+                      |
+                      = link_to 'Admin', admin_dashboard_path
+
+                    |
+                    = link_to 'Log out', logout_path, method: :delete, class: 'navbar-link'
+
+
+      .row
+        .col-md-12
+          - flash.each do |t, msg|
+            - if %w(success alert notice).include? t
+              %div.flash{ class: flash_class(t) }= msg
+
+      = yield
+
+    -# Modal to confirm completion of an issue
+    = render 'issues/modal_complete_issue'

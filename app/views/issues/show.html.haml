@@ -1,0 +1,24 @@
+.row
+  .col-md-12
+    %ol.breadcrumb
+      %li= link_to 'Overview', issues_url
+      %li.active ##{@issue.id}
+
+.row
+  .col-md-8
+    = render @issue
+
+
+.row
+  .col-md-8
+    %hr/
+    = render @issue.sorted_comments
+
+.row
+  .col-md-8
+    = form_for Comment.new, url: issue_comments_path(issue_id: @issue.id) do |f|
+      .form-group
+        = f.text_area :text, rows: 4, class: 'form-control', placeholder: 'Leave a comment'
+
+      .form-group
+        = f.submit 'Comment', class: 'btn btn-success pull-right'

@@ -1,0 +1,19 @@
+- case comment.type
+- when 'comment'
+  - klass = flash[:new_comment_id] == comment.id ? 'comment--new' : nil
+  .comment.panel.panel-default{ id: comment.anchor, class: klass }
+    .panel-heading
+      %strong= comment.author
+      #{time_ago_in_words(comment.created_at)} ago:
+
+    .panel-body= comment.text
+
+- when 'completed'
+  .comment.panel.panel-success{ id: comment.anchor }
+    .panel-heading
+      %i.glyphicon.glyphicon-ok
+      Marked as finished by <strong>#{comment.author}</strong>
+      #{time_ago_in_words(comment.created_at)} ago
+
+    - if !comment.text.blank?
+      .panel-body= comment.text

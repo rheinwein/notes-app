@@ -1,0 +1,32 @@
+.row
+  .col-md-12
+
+    %ul.nav.nav-tabs.issue-filter
+      - @issue_filter_tabs.each do |tab, slug, count|
+        -# figure out which filter tab is active
+        - klass = params[:filter] == slug ? 'active' : nil
+        - if slug.nil? && params[:filter].blank?
+          - klass = 'active'
+
+        %li{ class: klass }
+          = link_to issues_path(filter: slug) do
+            = tab
+            %span.badge= count
+
+.row
+  .col-md-8
+    - if @issues.count > 0
+      = render @issues
+
+  .col-md-4
+    = form_for Issue.new, url: issues_path do |f|
+      .form-group
+        = f.text_area :text, rows: 6, class: 'form-control', placeholder: 'Add a new note'
+
+      / .form-group
+      /   %label Category
+      /   = f.select :category_id, options_from_collection_for_select(Category.order('name ASC'), :id, :name), { include_blank: false }, class: 'form-control'
+
+
+      .form-group
+        = f.submit 'Create', class: 'btn btn-success btn-lg btn-block'

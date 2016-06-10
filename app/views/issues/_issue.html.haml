@@ -1,0 +1,33 @@
+- issue_class = [issue_status_class(issue)]
+- issue_class << 'issue--new' if flash[:new_issue_id] == issue.id
+
+.panel.panel-default.issue{ class: issue_class.join(' ') }
+  .panel-body.issue-text
+    - if issue.completed?
+      %del= issue.text
+    - else
+      = issue.text
+
+  .panel-footer
+    / - require 'pry'
+    / - binding.pry
+    / %span.label.label-info= issue.category.display_name
+    %span.label.label-default{ title: "#{issue.created_at.strftime('%d.%m.%Y %H:%M')}<br>(#{time_ago_in_words(issue.created_at)} ago)", data: { toggle: 'tooltip', placement: 'top' } }<
+      Created by #{issue.user.name}
+
+    - if issue.completed?
+      %span.label.label-success{ title: "#{issue.completed_at.strftime('%d.%m.%Y %H:%M')}<br>(#{time_ago_in_words(issue.completed_at)} ago)", data: { toggle: 'tooltip', placement: 'top' } }
+        Marked as completed by
+        = issue.completed_by.name
+        %span.glyphicon.glyphicon-ok
+
+    .pull-right
+
+      - if current_action == 'issues#index'
+        %a.btn.btn-default.btn-xs{ href: issue_path(issue) }<
+          Details
+          %span.glyphicon.glyphicon-info-sign
+
+      - unless issue.completed?
+        %button.btn.btn-default.btn-xs{ data: { issue_complete_url: issue_complete_url(issue), text: issue.text, toggle: 'modal', target: '#js-modal-complete-issue' } }
+          Mark as completed

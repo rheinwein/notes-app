@@ -1,0 +1,18 @@
+.issue
+  .issue-text
+    font-size: 1.2em
+
+  &.issue--completed
+    opacity: 0.6
+
+  &.issue--new
+    @extend .panel-success
+    +transition(box-shadow 1s ease)
+    +box-shadow(0 0 5px #449d44)
+
+  .panel-footer
+    padding: 7px 10px
+
+
+  .label[data-toggle="tooltip"]
+    cursor: help
