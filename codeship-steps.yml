@@ -1,0 +1,17 @@
+- type: serial
+  steps:
+  - type: parallel
+    steps:
+    - name: rspec
+      service: test
+      command: bin/ci spec
+    - name: rubocop
+      service: test
+      command: bin/rubocop
+    - name: rails_best_practices
+      service: test
+      command: bin/railsbp
+  - service: web
+    tag: master
+    command: bin/deploy
+

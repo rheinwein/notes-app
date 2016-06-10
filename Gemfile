@@ -25,3 +25,10 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'rubocop', require: false
+  gem 'rails_best_practices', require: false
+end

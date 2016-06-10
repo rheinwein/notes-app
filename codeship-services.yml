@@ -1,0 +1,7 @@
+db:
+  image: postgres
+test:
+  build: .
+  dockerfile: Dockerfile.test
+  links:
+    - db

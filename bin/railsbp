@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+ALLOWED_WARNINGS=0
+
+bundle exec rails_best_practices . | tee rails_best_practices.txt
+
+warnings=`grep warnings rails_best_practices.txt | tail -1 | cut -d " " -f2`
+
+if [ $warnings -gt $ALLOWED_WARNINGS ]
+then
+  echo -e "\033[31mallowed warnings $ALLOWED_WARNINGS\033[0m"
+  echo -e "\033[31mactual warnings $warnings\033[0m"
+  echo -e "\033[31mToo many rails best practices warnings\033[0m"
+  exit 1
+fi
+
+echo Rails Best Practices: $warnings/$ALLOWED_WARNINGS is ok
+

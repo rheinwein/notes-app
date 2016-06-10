@@ -1,0 +1,35 @@
+#!/bin/bash
+# Usage: bin/ci [setup]
+# Run the test suite on a Codeship build machine.
+set -e
+
+num_cpu=`cat /proc/cpuinfo | grep processor | wc -l`
+parallel_processes=$(($num_cpu / 2))
+
+if [ "$parallel_processes" == "0" ]; then
+  parallel_processes=1
+fi
+
+export PARALLEL_TEST_PROCESSORS=$parallel_processes
+
+if [ "$1" == "spec" ]; then
+    bin/wait_for_db
+    if [ "$2" == "" ]; then
+      time bundle exec rake db:reset:parallel
+      time bundle exec rake parallel:spec
+      cat tmp/parallel_runtime* | sort -g -r -k 2,2 -t : || true
+    else
+      time bundle exec rake db:reset
+      time bundle exec rspec $2
+    fi
+elif [ "$1" == "features" ]; then
+    bin/wait_for_db
+    if [ "$2" == "" ]; then
+      time bundle exec rake db:reset:parallel
+      time bundle exec rake parallel:features
+      cat tmp/parallel_runtime* | sort -g -r -k 2,2 -t : || true
+    else
+      time bundle exec rake db:reset
+      time bundle exec rake FEATURE=$2 features
+    fi
+fi
