@@ -11,7 +11,7 @@
     - name: rails_best_practices
       service: test
       command: bin/railsbp
-#  - service: test
-#    tag: master
-#    command: bin/deploy
+  - service: test
+    tag: master
+    command: bin/deploy
 
