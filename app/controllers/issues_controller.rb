@@ -7,7 +7,7 @@ class IssuesController < ApplicationController
     @issue_filter_tabs = [
       ['All', nil, Issue.count],
       ['Open', 'open', Issue.incomplete.count],
-      ['Closed', 'closed', Issue.completed.count],
+      ['Closed', 'closed', Issue.completed.count]
     ]
 
     case params[:filter]
@@ -51,6 +51,7 @@ class IssuesController < ApplicationController
   end
 
   private
+
   def issue_params
     params.require(:issue).permit(:text, :location_id)
   end

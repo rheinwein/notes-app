@@ -11,7 +11,7 @@ module ApplicationHelper
       base << 'alert-danger'
     end
 
-    return base.join(" ")
+    base.join(' ')
   end
 
   def current_action
@@ -30,7 +30,7 @@ module ApplicationHelper
       'Create a new user'
 
     when 'admin/users#edit'
-      "Edit user #{@user.id}"
+      'Edit user #{@user.id}'
 
     when 'admin/dashboard#show'
       'Dashboard'

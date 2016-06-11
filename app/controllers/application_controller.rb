@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   if Rails.env.production?
     http_basic_authenticate_with name: Rails.application.secrets.http_user,
-      password: Rails.application.secrets.http_pass
+                                 password: Rails.application.secrets.http_pass
   end
 
   def current_user

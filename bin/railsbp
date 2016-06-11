@@ -2,7 +2,7 @@
 
 set -e
 
-ALLOWED_WARNINGS=0
+ALLOWED_WARNINGS=10
 
 bundle exec rails_best_practices . | tee rails_best_practices.txt
 
@@ -17,4 +17,4 @@ then
 fi
 
 echo Rails Best Practices: $warnings/$ALLOWED_WARNINGS is ok
-
+rm rails_best_practices.txt

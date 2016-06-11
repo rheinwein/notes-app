@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
   # so we can use `type` as column name
   self.inheritance_column = 'inherit_from'
 
-  enum type: [ :comment, :completed ]
+  enum type: [:comment, :completed]
 
   belongs_to :issue
   belongs_to :user
@@ -14,5 +14,4 @@ class Comment < ActiveRecord::Base
   def anchor
     "issuecomment-#{id}"
   end
-
 end

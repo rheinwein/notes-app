@@ -7,7 +7,7 @@
       command: bin/ci spec
     - name: rubocop
       service: test
-      command: bin/rubocop
+      command: rubocop
     - name: rails_best_practices
       service: test
       command: bin/railsbp

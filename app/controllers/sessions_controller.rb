@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      flash[:success] = "%s signed in." % user.name
+      flash[:success] = "#{user.name} signed in."
       redirect_to issues_path
     else
       redirect_to login_url, alert: 'User not found.'
@@ -22,5 +22,4 @@ class SessionsController < ApplicationController
 
     redirect_to root_url, notice: 'Successfully logged out.'
   end
-
 end
