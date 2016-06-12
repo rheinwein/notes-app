@@ -15,5 +15,5 @@
       Marked as finished by <strong>#{comment.author}</strong>
       #{time_ago_in_words(comment.created_at)} ago
 
-    - if !comment.text.blank?
+    - unless comment.text?
       .panel-body= comment.text

@@ -9,9 +9,6 @@
       = issue.text
 
   .panel-footer
-    / - require 'pry'
-    / - binding.pry
-    / %span.label.label-info= issue.category.display_name
     %span.label.label-default{ title: "#{issue.created_at.strftime('%d.%m.%Y %H:%M')}<br>(#{time_ago_in_words(issue.created_at)} ago)", data: { toggle: 'tooltip', placement: 'top' } }<
       Created by #{issue.user.name}
 

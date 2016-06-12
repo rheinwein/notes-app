@@ -1,7 +1,9 @@
 db:
   image: postgres
 app:
-  build: .
-  dockerfile: Dockerfile.test
+  build:
+    image: rheinwein/notes-app 
+    dockerfile: Dockerfile.test
+  cache: true
   links:
     - db

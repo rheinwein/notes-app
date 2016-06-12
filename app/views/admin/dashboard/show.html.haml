@@ -13,7 +13,7 @@
 
       %tbody
         - User.order('name ASC').each do |user|
-          %tr{ class: user.admin? ? 'success' : nil}
+          %tr{ class: user.admin? ? 'success' : nil }
             %td= content_tag :code, user.id
             %td= user.name
             %td= content_tag :code, user.chip_id
