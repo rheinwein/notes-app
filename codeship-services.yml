@@ -1,6 +1,7 @@
 db:
   image: postgres
 app:
+  encrypted_dockercfg_path: dockercfg.encrypted
   build:
     image: rheinwein/notes-app 
     dockerfile: Dockerfile.test
