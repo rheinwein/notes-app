@@ -14,7 +14,7 @@
     - name: rails_best_practices
       service: app
       command: bin/railsbp 
-  - service: app
+  - service: deploy
     type: push
     image_name: rheinwein/notes-app 
     tag: ^master$

@@ -8,3 +8,9 @@ app:
   cached: true
   links:
     - db
+deploy:
+  encrypted_dockercfg_path: dockercfg.encrypted
+  build:
+    dockerfile: Dockerfile.deploy
+  cached: true
+

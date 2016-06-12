@@ -1,0 +1,15 @@
+FROM rails:4
+
+ENV RAILS_ENV=production
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY Gemfile ./Gemfile
+COPY Gemfile.lock ./Gemfile.lock
+
+RUN bundle install -j 20
+
+COPY . .
+
+CMD rails s -b 0.0.0.0
