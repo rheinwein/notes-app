@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160607183618) do
   create_table "issues", force: :cascade do |t|
     t.text     "text",         null: false
     t.integer  "user_id",      null: false
+    t.integer  "category_id"
     t.datetime "completed_at"
     t.integer  "completed_by"
     t.datetime "created_at",   null: false
