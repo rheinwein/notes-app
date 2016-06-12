@@ -5,6 +5,12 @@ default: &default
   encoding: unicode
   pool: 5
 
+production:
+  <<: *default
+  username: <%= ENV['POSTGRES_USERNAME'] || 'postgres' %>
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || 'localhost' %>
+  port: 5432
+
 development:
   <<: *default
   database: notes_app_development
