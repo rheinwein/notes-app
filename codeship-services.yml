@@ -1,6 +1,6 @@
 db:
   image: postgres
-test:
+app:
   build: .
   dockerfile: Dockerfile.test
   links:

@@ -3,14 +3,17 @@
   - type: parallel
     steps:
     - name: rspec
-      service: test
+      service: app
       command: bin/ci spec
     - name: rubocop
-      service: test
+      service: app
       command: rubocop
+    - name: haml-lint
+      service: app
+      command: haml-lint app/views
     - name: rails_best_practices
-      service: test
-      command: bin/railsbp
+      service: app
+      command: bin/railsbp 
   - service: app
     type: push
     image_name: rheinwein/notes-app 

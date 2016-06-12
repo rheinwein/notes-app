@@ -31,4 +31,5 @@ group :development, :test do
   gem 'capybara'
   gem 'rubocop', require: false
   gem 'rails_best_practices', require: false
+  gem 'haml_lint', require: false
 end
