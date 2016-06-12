@@ -1,5 +1,5 @@
 bundle exec rake db:reset
-bundle exec rake db:seed
+bundle exec rake db:migrate
 
 rails s -b 0.0.0.0
 
