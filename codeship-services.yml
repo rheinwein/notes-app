@@ -4,6 +4,6 @@ app:
   build:
     image: rheinwein/notes-app 
     dockerfile: Dockerfile.test
-  cache: true
+  cached: true
   links:
     - db
