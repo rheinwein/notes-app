@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def new
-    session[:user_id] = nil
+    redirect_to issues_path if session[:user_id]
     @user = User.new
   end
 
