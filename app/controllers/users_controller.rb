@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
-
   def new
     session[:user_id] = nil
-
     @user = User.new
   end
 
@@ -15,14 +13,8 @@ class UsersController < ApplicationController
       redirect_to issues_path
     else
       flash.now[:alert] = "Error: #{@user.errors.full_messages.join(', ')}"
-      render action: :new
+      render :new
     end
-  end
-
-  def destroy
-    session[:user_id] = nil
-    flash[:success] = "Session ended for #{@user.name}."
-    redirect_to login_path
   end
 
   private

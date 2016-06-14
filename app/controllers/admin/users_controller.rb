@@ -14,7 +14,7 @@ class Admin::UsersController < ApplicationController
       redirect_to edit_admin_user_path(@user)
     else
       flash.now[:alert] = "Error: #{@user.errors.full_messages.join(', ')}"
-      render action: :new
+      render :new
     end
   end
 
@@ -27,7 +27,7 @@ class Admin::UsersController < ApplicationController
       redirect_to edit_admin_user_path(@user)
     else
       flash.now[:alert] = "Error: #{@user.errors.full_messages.join(', ')}"
-      render action: :edit
+      render :edit
     end
   end
 
