@@ -34,6 +34,8 @@ module ApplicationHelper
 
     when 'admin/dashboard#show'
       'Dashboard'
+    else
+      'Hello'
     end
   end
 end

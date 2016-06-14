@@ -5,7 +5,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-    %title #{window_title} « The Ship Log
+    %title "#{window_title} | DockerCon 2016"
 
   %body
     .container
@@ -15,7 +15,7 @@
             .container-fluid
               .navbar-header
                 .navbar-brand
-                  = link_to 'The Ship Log | Codeship Notes and Tasks', root_url
+                  = link_to 'DockerCon 2016 Task Tracker', root_url
               .navbar-collapse
                 - if current_user
                   %p.navbar-text.navbar-right

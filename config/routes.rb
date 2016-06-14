@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root to: redirect('/login', status: 302)
 
-  get    'login',     to: 'sessions#new',     as: :login
+  get    'login',     to: 'users#new',     as: :login
   delete 'logout',    to: 'sessions#destroy', as: :logout
 
-  resources :sessions, only: [:create, :destroy]
+  resources :users, only: [:new, :create, :destroy]
+  resources :sessions, only: [:destroy]
   resources :issues, only: [:index, :create, :show] do
     patch '/complete', to: 'issues#complete', as: :complete
 
