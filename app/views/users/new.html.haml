@@ -1,12 +1,9 @@
-.page-header
-  %h1.h2 New Session
-
 .row
   .col-md-8
-
+    %img.docker-logo{ src: 'http://2016.dockercon.com/assets/front_page/mosaic-logo-3b308388eec8b42a0218ca370a91ebaf.png' }
     = form_for @user, url: users_path do |f|
       .form-group
-        %label What's your name?
+        %label Name
         = f.text_field :name, class: 'form-control'
 
       .form-group= f.submit 'Log in', class: 'btn btn-success'
