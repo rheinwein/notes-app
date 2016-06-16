@@ -1,33 +1,29 @@
 !!!5
 %html
   %head
+    %link{ href: 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700,700italic', rel: 'stylesheet', type: 'text/css' }
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-
     %title #{window_title} | DockerCon 2016
 
   %body
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          .navbar-brand
+            = link_to 'DockerCon 2016 Task Tracker', root_url
+        .navbar-collapse
+          - if current_user
+            %p.navbar-text.navbar-right
+              %strong= current_user.name
+              - if current_user.admin?
+                |
+                = link_to 'Admin', admin_dashboard_path
+
+              |
+              = link_to 'Log out', logout_path, method: :delete, class: 'navbar-link'
     .container
-      .row
-        .col-md-12
-          %nav.navbar.navbar-default
-            .container-fluid
-              .navbar-header
-                .navbar-brand
-                  = link_to 'DockerCon 2016 Task Tracker', root_url
-              .navbar-collapse
-                - if current_user
-                  %p.navbar-text.navbar-right
-                    %strong= current_user.name
-                    - if current_user.admin?
-                      |
-                      = link_to 'Admin', admin_dashboard_path
-
-                    |
-                    = link_to 'Log out', logout_path, method: :delete, class: 'navbar-link'
-
-
       .row
         .col-md-12
           - flash.each do |t, msg|

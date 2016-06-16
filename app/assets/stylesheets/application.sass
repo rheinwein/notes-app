@@ -7,18 +7,40 @@
 @import 'comments'
 
 body
-  padding-bottom: 100px
+  padding-bottom: 100pc
+  font-family: 'Helvetica', sans-serif
+
+h1, h2, h3
+  font-family: 'Noto Sans', 'Helvetica', sans-serif
 
 .navbar
-  margin-top: 20px
+  margin: 0 0 40px 0
+  background-color: #229AFF
+  border-radius: 0
+  border: 0
+  color: white
+  .navbar-header
+    font-family: 'Noto Sans', 'Helvetica', sans-serif
+    a
+      color: white
+      &:hover
+        text-decoration: none
+        color: white
+  .navbar-default, 
+  .navbar-text,
+  .navbar-link
+    color: white
+    &:hover
+      text-decoration: none
+      color: white
+      text-shadow: 1px 1px 1px #666
 
-.login-chip-input
-  font-size: 50px
-  font-family: monospace
-  height: 80px
-
-.edit-user-chip-input
-  font-family: monospace
 
 .issue-filter
   margin-bottom: 20px
+
+.no-issues
+  font-weight: 100
+  font-style: italic
+  color: #ccc
+  font-size: 20px
