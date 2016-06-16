@@ -15,7 +15,7 @@ class IssuesController < ApplicationController
       @issues = [Issue.incomplete, Issue.completed].flatten
     when 'open'
       @issues = Issue.incomplete
-    when 'closed'
+    when 'Completed'
       @issues = Issue.completed
     else
       @issues = []
