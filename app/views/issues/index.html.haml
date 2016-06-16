@@ -14,19 +14,16 @@
             %span.badge= count
 
 .row
-  .col-md-8
-    - if @issues.count > 0
-      = render @issues
-
   .col-md-4
     = form_for Issue.new, url: issues_path do |f|
       .form-group
         = f.text_area :text, rows: 6, class: 'form-control', placeholder: 'Add a new note'
 
-      / .form-group
-      /   %label Category
-      /   = f.select :category_id, options_from_collection_for_select(Category.order('name ASC'), :id, :name), { include_blank: false }, class: 'form-control'
-
-
       .form-group
         = f.submit 'Create', class: 'btn btn-success btn-lg btn-block'
+  .col-md-8
+    - if @issues.count > 0
+      = render @issues
+    - else
+      %span.no-issues
+        No issues here!
