@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: redirect('/login', status: 302)
 
-  get    'login',     to: 'users#new',     as: :login
-  delete 'logout',    to: 'sessions#destroy', as: :logout
+  get 'login',     to: 'users#new',        as: :login
+  get 'logout',    to: 'sessions#destroy', as: :logout
 
   resources :users, only: [:new, :create, :destroy]
   resources :sessions, only: [:destroy]
@@ -17,5 +17,4 @@ Rails.application.routes.draw do
 
     resources :users, except: [:show]
   end
-
 end
