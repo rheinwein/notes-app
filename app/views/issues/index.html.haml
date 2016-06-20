@@ -17,7 +17,7 @@
   .col-md-4
     = form_for Issue.new, url: issues_path do |f|
       .form-group
-        = f.text_area :text, rows: 6, class: 'form-control', placeholder: 'Add a new note'
+        = f.text_area :text, rows: 6, class: 'form-control', placeholder: 'Add a new task'
 
       .form-group
         = f.submit 'Create', class: 'btn btn-success btn-lg btn-block'
