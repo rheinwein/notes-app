@@ -17,6 +17,8 @@ config/secrets.yml
 .env
 /log/*
 /tmp/*
+log/*
+log/
 
 ## Environment normalization:
 /.bundle

@@ -1,6 +1,6 @@
 FROM rails:4
 
-ENV RAILS_ENV=production
+ENV RAILS_ENV=development
 
 RUN mkdir -p /app
 WORKDIR /app

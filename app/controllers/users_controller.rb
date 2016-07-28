@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def new
     redirect_to issues_path if session[:user_id]
     @user = User.new
+    @issue = Issue.new
   end
 
   def create

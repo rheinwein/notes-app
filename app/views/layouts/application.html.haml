@@ -6,14 +6,14 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    %title #{window_title} | DockerCon 2016
+    %title #{window_title} | #TODOs and Tasks
 
   %body
     %nav.navbar.navbar-default
       .container-fluid
         .navbar-header
           .navbar-brand
-            = link_to 'DockerCon 2016 Task Tracker', root_url
+            = link_to '#TODOs and Tasks', root_url
         .navbar-collapse
           - if current_user
             %p.navbar-text.navbar-right
