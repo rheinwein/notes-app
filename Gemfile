@@ -9,6 +9,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'uglifier', '>= 1.3.0'
 gem 'haml-rails', '~> 0.9'
 gem 'jquery-rails'
+gem 'nokogiri', '~> 1.6.8.rc2'
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'
