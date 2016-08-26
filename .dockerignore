@@ -1,2 +1,7 @@
 notes-app.tar
-
+/app/*
+*/assets
+app/
+spec/
+*.rb
+vendor/cache
