@@ -2,8 +2,6 @@
 
 one:
   name: Test User 1
-  chip_id: '12345'
 
 two:
   name: Test User 2
-  chip_id: 'password'

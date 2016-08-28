@@ -3,5 +3,9 @@
 set -e
 
 bin/wait_for_db
-time bundle exec rake db:reset
+
+time bundle exec rake db:create
+time bundle exec rake db:migrate
+time bundle exec rake db:seed
+
 time bundle exec rspec $2
