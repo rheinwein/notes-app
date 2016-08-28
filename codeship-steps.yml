@@ -10,7 +10,7 @@
       command: rubocop
     - name: haml-lint
       service: app
-      command: haml-lint
+      command: haml-lint app/views
     - name: rails_best_practices
       service: app
       command: bin/railsbp 
