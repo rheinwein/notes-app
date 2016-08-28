@@ -23,7 +23,7 @@ RSpec.feature 'User sessions' do
     it 'logs out the current user' do
       fill_in 'user_name', with: 'Test User'
       click_on 'Log in'
-      find(".navbar-link[href='/logout']").click()
+      find(".navbar-link[href='/logout']").click
       expect(page).to have_current_path('/login')
       expect(page).to have_text('Successfully logged out.')
     end
