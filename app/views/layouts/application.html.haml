@@ -19,10 +19,6 @@
           - if current_user
             %p.navbar-text.navbar-right
               %strong= current_user.name
-              - if current_user.admin?
-                |
-                = link_to 'Admin', admin_dashboard_path
-
               |
               = link_to 'Log out', logout_path, method: :get, class: 'navbar-link'
     .container

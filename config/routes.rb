@@ -11,10 +11,4 @@ Rails.application.routes.draw do
 
     resources :comments, only: [:create]
   end
-
-  namespace :admin do
-    root to: 'dashboard#show', as: :dashboard
-
-    resources :users, except: [:show]
-  end
 end

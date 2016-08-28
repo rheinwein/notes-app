@@ -15,10 +15,4 @@ class ApplicationController < ActionController::Base
   def already_logged_in?
     redirect_to issues_path if current_user
   end
-
-  def authenticate_as_admin!
-    unless current_user && current_user.admin?
-      redirect_to root_url, alert: 'restricted'
-    end
-  end
 end

@@ -25,15 +25,6 @@ module ApplicationHelper
 
     when 'issues#show'
       truncate(@issue.text, length: 60)
-
-    when 'admin/users#new'
-      'Create a new user'
-
-    when 'admin/users#edit'
-      'Edit user #{@user.id}'
-
-    when 'admin/dashboard#show'
-      'Dashboard'
     else
       'Hello'
     end
