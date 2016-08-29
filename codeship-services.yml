@@ -1,7 +1,6 @@
 db:
   image: postgres:9.5
 app:
-  encrypted_dockercfg_path: dockercfg.encrypted
   build:
     image: rheinwein/notes-app 
     dockerfile: Dockerfile.test
@@ -9,7 +8,6 @@ app:
   links:
     - db
 deploy:
-  encrypted_dockercfg_path: dockercfg.encrypted
   build:
     dockerfile: Dockerfile.deploy
   cached: true
