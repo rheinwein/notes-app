@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+    networks:
+      - default
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    ports: 
+      - 3001:3000
+    volumes:
+      - ./:/app
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge

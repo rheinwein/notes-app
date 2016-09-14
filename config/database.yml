@@ -15,11 +15,11 @@ development:
   <<: *default
   database: notes_app_development
   username: <%= ENV['POSTGRES_USERNAME'] || 'postgres' %>
-  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || 'localhost' %>
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || 'db' %>
   port: 5432
 
 test: &test
   <<: *default
   username: <%= ENV['POSTGRES_USERNAME'] || 'postgres' %>
-  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || 'localhost' %>
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || 'db' %>
   port: 5432
