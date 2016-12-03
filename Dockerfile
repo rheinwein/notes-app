@@ -11,4 +11,7 @@ COPY Gemfile.lock ./Gemfile.lock
 
 RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle install -j 20
+
+EXPOSE 3000
+
 CMD rails s -b 0.0.0.0
